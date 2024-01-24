@@ -17,7 +17,7 @@ local theme = lush(function(injected_functions)
     -- CursorIM         { }, -- Like Cursor, but used when in IME mode |CursorIM|
     CursorColumn     { bg = p.black }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine       { bg = p.bg_med }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-    CursorLineNC     { bg = p.black }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLineNC     { bg = p.bg.lighten(6) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory        { fg = p.cyan }, -- Directory names (and other special names in listings)
     DiffAdd          { bg = p.black, fg = p.green.lighten(10) }, -- Diff mode: Added line |diff.txt|
     DiffChange       { bg = p.black, fg = p.yellow.lighten(10)  }, -- Diff mode: Changed line |diff.txt|
@@ -41,7 +41,7 @@ local theme = lush(function(injected_functions)
     CursorLineNrNC   { fg = p.fg }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line in non-current windows.
     -- CursorLineFold   { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     -- CursorLineSign   { }, -- Like SignColumn when 'cursorline' is set for the cursor line
-    MatchParen       { fg = p.cyan }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen       { bg = p.cyan, fg = p.black }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg          { fg = p.fg }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea          { }, -- Area for messages and cmdline
     -- MsgSeparator     { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -69,7 +69,7 @@ local theme = lush(function(injected_functions)
     SpellCap         { gui = 'undercurl' }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     SpellLocal       { gui = 'undercurl' }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     SpellRare        { gui = 'undercurl' }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-    StatusLine       { bg = p.bg.lighten(15), fg = p.black_bright.lighten(20) }, -- Status line of current window
+    StatusLine       { }, -- Status line of current window
     StatusLineNC     { StatusLine }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     StatusLineTerm   { StatusLine }, -- Status line of current window
     StatusLineTermNC { StatusLineNC }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
@@ -81,7 +81,7 @@ local theme = lush(function(injected_functions)
     TabLineFill      { fg = p.fg, bg = p.black }, -- Tab pages line, where there are no labels
     TabLineSel       { fg = p.cyan, bg = p.black_bright }, -- Tab pages line, active tab page label
     Title            { fg = p.fg }, -- Titles for output from ":set all", ":autocmd" etc.
-    Visual           { bg = p.black_med }, -- Visual mode selection
+    Visual           { bg = p.bg.lighten(30) }, -- Visual mode selection
     VisualNOS        { bg = p.black_med }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg       { fg = p.black, bg = p.yellow }, -- Warning messages
     -- Whitespace       { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
