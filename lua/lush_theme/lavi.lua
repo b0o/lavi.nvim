@@ -335,6 +335,12 @@ local theme = lush(function(injected_functions)
     FlashPrompt               { bg = p.violet_med, fg = p.white },
     FlashPromptIcon           { bg = p.violet_med, fg = p.white },
     FlashCursor               { bg = p.skyblue, fg = p.bg_med },
+
+    ---- nvim-treesitter-context
+    TreesitterContext         { bg = p.bg.lighten(15).desaturate(5) },
+    TreesitterContextLineNumber { fg = p.black_bright.lighten(10), bg = p.bg.lighten(5) },
+    -- TreesitterContextSeparator {},
+    -- TreesitterContextBottom    {},
   }
 end)
 
