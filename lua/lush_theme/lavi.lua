@@ -326,6 +326,15 @@ local theme = lush(function(injected_functions)
 
     CmpItemKindSnippet        { bg = p.violet, fg = p.white_bright },
     CmpItemKindColor          { bg = p.mint.darken(0), fg = p.white_bright },
+
+    ---- flash.nvim
+    FlashBackdrop             { bg = p.bg.lighten(5) },
+    FlashMatch                { bg = p.velvet.darken(10), fg = p.white },
+    FlashCurrent              { bg = p.blush, fg = p.bg_med },
+    FlashLabel                { bg = p.yellow, fg = p.bg_med },
+    FlashPrompt               { bg = p.violet_med, fg = p.white },
+    FlashPromptIcon           { bg = p.violet_med, fg = p.white },
+    FlashCursor               { bg = p.skyblue, fg = p.bg_med },
   }
 end)
 
