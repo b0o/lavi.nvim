@@ -18,7 +18,7 @@ local theme = lush(function(injected_functions)
     CursorColumn     { bg = p.black }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine       { bg = p.bg_med }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     CursorLineNC     { bg = p.bg.lighten(6) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-    Directory        { fg = p.cyan }, -- Directory names (and other special names in listings)
+    Directory        { fg = p.violet_bright.lighten(50).desaturate(10) }, -- Directory names (and other special names in listings)
     DiffAdd          { bg = p.black, fg = p.green.lighten(10) }, -- Diff mode: Added line |diff.txt|
     DiffChange       { bg = p.black, fg = p.yellow.lighten(10)  }, -- Diff mode: Changed line |diff.txt|
     DiffDelete       { bg = p.black, fg = p.red_bright.lighten(10)  }, -- Diff mode: Deleted line |diff.txt|
@@ -260,20 +260,28 @@ local theme = lush(function(injected_functions)
     GitSignsChange            { fg = p.yellow },
     GitSignsDelete            { fg = p.red_bright },
 
-    ---- nvim-tree.lua
-    NvimTreeGitDirty          { fg = p.yellow },
-    NvimTreeGitStaged         { fg = p.green },
-    NvimTreeGitMerge          { fg = p.violet_bright },
-    NvimTreeGitRenamed        { fg = p.orange },
-    NvimTreeGitNew            { fg = p.cyan },
-    NvimTreeGitDeleted        { fg = p.red },
-
     ---- Neogit
     NeogitCursorLine          { gui = "nocombine" },
     NeogitDiffAdd             { fg = p.green.desaturate(40).lighten(20) },
     NeogitDiffAddHighlight    { fg = p.green.lighten(10) },
     NeogitDiffDelete          { fg = p.red_bright.desaturate(40).lighten(20) },
     NeogitDiffDeleteHighlight { fg = p.red_bright.lighten(10) },
+
+    ---- nvim-tree.lua
+    NvimTreeGitDirty          { GitSignsChange },
+    NvimTreeGitStaged         { NeogitDiffAddHighlight },
+    NvimTreeGitMerge          { fg = p.violet_bright },
+    NvimTreeGitRenamed        { fg = p.orange },
+    NvimTreeGitNew            { NeogitDiffAdd },
+    NvimTreeGitDeleted        { NeogitDiffDeleteHighlight },
+    NvimTreeIndentMarker      { fg = p.black_bright },
+    NvimTreeNormal            { fg = p.violet_bright.lighten(50).desaturate(10) },
+    NvimTreeNormalNC          { fg = p.violet_bright.lighten(50).desaturate(10) },
+    NvimTreeFolderName        { fg = p.violet_bright.lighten(30).desaturate(10) },
+    NvimTreeEmptyFolderName   { NvimTreeFolderName },
+    NvimTreeOpenedHL          { fg = p.white_bright },
+    NvimTreeExecFile          { gui = 'bold,italic' },
+    NvimTreeSpecialFile       { gui = 'bold' },
 
     -- noice.nvim
     NoiceCmdlinePopupBorder   { ActivePopupBorder },
@@ -341,6 +349,13 @@ local theme = lush(function(injected_functions)
     TreesitterContextLineNumber { fg = p.black_bright.lighten(10), bg = p.bg.lighten(5) },
     -- TreesitterContextSeparator {},
     -- TreesitterContextBottom    {},
+
+    ---- twoslash-queries.nvim
+    TypeVirtualText           { fg = p.blue.lighten(30), bg = p.bg.lighten(15).desaturate(5) },
+
+    ---- aerial.nvim
+    AerialLine                { bg = p.bg.lighten(40) },
+    AerialLineNC              { bg = p.bg.lighten(20) },
   }
 end)
 
