@@ -356,6 +356,43 @@ local theme = lush(function(injected_functions)
     ---- aerial.nvim
     AerialLine                { bg = p.bg.lighten(40) },
     AerialLineNC              { bg = p.bg.lighten(20) },
+
+    ---- multiple-cursors.nvim
+    MultiCursor               { bg = p.bg.lighten(75).saturate(50), fg = p.bg_dark },
+
+    ---- nvim-navic
+    NavicIconsFile            { Statement },
+    NavicIconsModule          { Type },
+    NavicIconsNamespace       { Type },
+    NavicIconsPackage         { Type },
+    NavicIconsClass           { Type },
+    NavicIconsMethod          { Function },
+    NavicIconsProperty        { Identifier },
+    NavicIconsField           { Identifier },
+    NavicIconsConstructor     { Function },
+    NavicIconsEnum            { Type },
+    NavicIconsInterface       { Type },
+    NavicIconsFunction        { Function },
+    NavicIconsVariable        { Identifier },
+    NavicIconsConstant        { Constant },
+    NavicIconsString          { String },
+    NavicIconsNumber          { Number },
+    NavicIconsBoolean         { Boolean },
+    NavicIconsArray           { Type },
+    NavicIconsObject          { Type },
+    NavicIconsKey             { Identifier },
+    NavicIconsNull            { fg = p.black_bright },
+    NavicIconsEnumMember      { Identifier },
+    NavicIconsStruct          { Type },
+    NavicIconsEvent           { Type },
+    NavicIconsOperator        { Statement },
+    NavicIconsTypeParameter   { Type },
+    NavicText                 { Identifier },
+    NavicSeparator            { fg = p.black_bright.lighten(10) },
+
+    ---- indent-blankline.nvim
+    IblWhitespace             { Comment },
+    IblIndent                 { NonText },
   }
 end)
 
