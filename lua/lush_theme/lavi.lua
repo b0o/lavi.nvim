@@ -11,7 +11,7 @@ local theme = lush(function(injected_functions)
     ---- General highlight groups
     ColorColumn      { bg = p.black }, -- Columns set with 'colorcolumn'
     Conceal          { fg = p.green, bg = p.bg_med }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor           { bg = p.fg }, -- Character under the cursor
+    Cursor           { bg = p.fg, fg = p.bg }, -- Character under the cursor
     -- CurSearch        { }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     -- lCursor          { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM         { }, -- Like Cursor, but used when in IME mode |CursorIM|
