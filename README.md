@@ -2,7 +2,7 @@
 
 A soft and sweet colorscheme for Neovim. (Work in progress)
 
-![2024-02-16_11-28-54_region](https://github.com/b0o/nvim-conf/assets/21299126/14439047-bfde-4d83-b84f-732bbf235707)
+![Screenshot](https://github.com/b0o/lavi.nvim/assets/21299126/81b54b40-2213-4385-aed5-2f13f2cadb43)
 
 ## Installation
 
