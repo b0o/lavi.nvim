@@ -9,6 +9,10 @@ local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
     ---- General highlight groups
+    Normal           { fg = p.fg, bg = p.bg }, -- Normal text
+    NormalNC         { fg = p.fg, bg = p.bg_dark }, -- normal text in non-current windows
+    NormalFloat      { fg = p.fg, bg = p.bg }, -- Normal text in floating windows.
+    NormalFloatNC    { fg = p.fg, bg = p.bg_dark }, -- Normal text in non-current floating windows.
     ColorColumn      { bg = p.black }, -- Columns set with 'colorcolumn'
     Conceal          { fg = p.green, bg = p.bg_med }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor           { bg = p.fg, fg = p.bg }, -- Character under the cursor
@@ -47,10 +51,6 @@ local theme = lush(function(injected_functions)
     -- MsgSeparator     { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg          { fg = p.fg }, -- |more-prompt|
     NonText          { fg = p.black_med }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    Normal           { fg = p.fg, bg = p.bg }, -- Normal text
-    NormalNC         { fg = p.fg, bg = p.bg_dark }, -- normal text in non-current windows
-    NormalFloat      { fg = p.fg, bg = p.bg }, -- Normal text in floating windows.
-    NormalFloatNC    { fg = p.fg, bg = p.bg_dark }, -- Normal text in non-current floating windows.
     FloatBorder      { fg = p.black_med }, -- Border of floating windows.
     -- FloatTitle       { }, -- Title of floating windows.
     Pmenu            { fg = p.fg, bg = p.bg.lighten(30) }, -- Popup menu: Normal item.
