@@ -288,6 +288,27 @@ local theme = lush(function(injected_functions)
     NvimTreeExecFile          { gui = 'bold,italic' },
     NvimTreeSpecialFile       { gui = 'bold' },
 
+    ---- Neo-tree.nvim
+    NeoTreeBufferNumber       { fg = p.black_bright },
+    NeoTreeCursorLine         { CursorLine },
+    NeoTreeDirectoryIcon      { fg = p.violet_bright.lighten(40).desaturate(50) },
+    NeoTreeDirectoryName      { fg = p.violet_bright.lighten(30).desaturate(10) },
+    NeoTreeDotfile            { fg = p.anise.lighten(50).desaturate(10) },
+    NeoTreeFileIcon           { fg = p.anise.lighten(40).desaturate(60) },
+    NeoTreeFileName           { fg = p.anise.lighten(50).desaturate(10) },
+    NeoTreeFileNameOpened     { fg = p.anise.lighten(30).saturate(10) },
+    NeoTreeFilterTerm         { fg = p.anise.lighten(50).desaturate(10) },
+    NeoTreeGitAdded           { fg = p.green.lighten(60) },
+    NeoTreeGitConflict        { sp = p.red, gui = 'undercurl' },
+    NeoTreeGitDeleted         { fg = p.red_bright.lighten(40) },
+    NeoTreeGitIgnored         { fg = p.anise.lighten(20).desaturate(50) },
+    NeoTreeGitModified        { fg = p.yellow.lighten(30) },
+    NeoTreeGitUnstaged        { fg = p.yellow.lighten(10) },
+    NeoTreeGitUntracked       { fg = p.yellow.lighten(60) },
+    NeoTreeGitStaged          { fg = p.green.lighten(20) },
+    NeoTreeHiddenByName       { fg = p.anise.lighten(20).desaturate(50) },
+    NeoTreeIndentMarker       { fg = p.black_bright },
+
     -- noice.nvim
     NoiceCmdlinePopupBorder   { ActivePopupBorder },
     NoiceCmdlinePopupTitle    { fg = p.anise.desaturate(50).lighten(40) },
