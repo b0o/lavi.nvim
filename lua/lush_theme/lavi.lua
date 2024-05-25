@@ -272,6 +272,14 @@ local theme = lush(function(injected_functions)
     NeogitDiffDeleteHighlight { fg = p.red_bright.lighten(10) },
     NeogitDiffDeleteCursor    { fg = p.red_bright.lighten(10), bg = p.bg_med },
 
+    ---- git-conflict.nvim
+    GitConflictCurrent        { fg = p.fg_dim, bg = p.bg.lighten(13).saturate(05) },
+    GitConflictCurrentLabel   { fg = p.white,  bg = p.bg.lighten(30).saturate(10) },
+    GitConflictIncoming       { fg = p.fg_dim, bg = p.bg.lighten(13).saturate(5).rotate(-80) },
+    GitConflictIncomingLabel  { fg = p.white,  bg = p.bg.lighten(30).saturate(10).rotate(-80) },
+    GitConflictAncestor       { fg = p.fg_dim, bg = p.bg.lighten(13).saturate(5).rotate(-30) },
+    GitConflictAncestorLabel  { fg = p.white,  bg = p.bg.lighten(30).saturate(10).rotate(-30) },
+
     ---- nvim-tree.lua
     NvimTreeGitDirty          { GitSignsChange },
     NvimTreeGitStaged         { NeogitDiffAddHighlight },
