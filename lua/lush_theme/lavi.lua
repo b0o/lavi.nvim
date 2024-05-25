@@ -262,10 +262,15 @@ local theme = lush(function(injected_functions)
 
     ---- Neogit
     NeogitCursorLine          { gui = "nocombine" },
+    NeogitHunkHeader          { fg = p.fg_dim, bg = p.bg.lighten(15).saturate(5) },
+    NeogitHunkHeaderHighlight { fg = p.fg, bg = p.bg.lighten(30).saturate(10) },
+    NeogitHunkHeaderCursor    { fg = p.fg, bg = p.bg.lighten(45).saturate(10) },
     NeogitDiffAdd             { fg = p.green.desaturate(40).lighten(20) },
     NeogitDiffAddHighlight    { fg = p.green.lighten(10) },
+    NeogitDiffAddCursor       { fg = p.green.lighten(10), bg = p.bg_med },
     NeogitDiffDelete          { fg = p.red_bright.desaturate(40).lighten(20) },
     NeogitDiffDeleteHighlight { fg = p.red_bright.lighten(10) },
+    NeogitDiffDeleteCursor    { fg = p.red_bright.lighten(10), bg = p.bg_med },
 
     ---- nvim-tree.lua
     NvimTreeGitDirty          { GitSignsChange },
