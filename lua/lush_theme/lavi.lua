@@ -384,7 +384,8 @@ local theme = lush(function(injected_functions)
     AerialLineNC              { bg = p.bg.lighten(20) },
 
     ---- multiple-cursors.nvim
-    MultiCursor               { bg = p.bg.lighten(75).saturate(50), fg = p.bg_dark },
+    MultipleCursorsCursor     { bg = p.bg.lighten(75).saturate(50), fg = p.bg_dark },
+    MultipleCursorsVisual     { bg = p.bg.lighten(45) },
 
     ---- nvim-navic
     NavicIconsFile            { Statement },
