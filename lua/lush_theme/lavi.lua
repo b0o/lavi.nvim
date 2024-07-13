@@ -259,6 +259,7 @@ local theme = lush(function(injected_functions)
     GitSignsAdd               { fg = p.green },
     GitSignsChange            { fg = p.yellow },
     GitSignsDelete            { fg = p.red_bright },
+    GitSignsCurrentLineBlame  { fg = p.fg_dim.darken(10).desaturate(10) },
 
     ---- Neogit
     NeogitCursorLine          { gui = "nocombine" },
