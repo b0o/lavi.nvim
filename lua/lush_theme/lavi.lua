@@ -300,6 +300,7 @@ local theme = lush(function(injected_functions)
     NeogitDiffDelete          { bg = p.bg.mix(p.red_bright.darken(30), 30) },
     NeogitDiffDeleteHighlight { bg = p.bg.mix(p.red_bright.darken(30), 40) },
     NeogitDiffDeleteCursor    { bg = p.bg.mix(p.red_bright.darken(30), 50) },
+    NeogitFloatBorder         { ActivePopupBorder },
 
     ---- git-conflict.nvim
     GitConflictCurrent        { bg = p.dark_bg.lighten(13).saturate(05) },
@@ -334,7 +335,7 @@ local theme = lush(function(injected_functions)
     NvimTreeGitNew            { DiffAddBright },
     NvimTreeGitDeleted        { DiffDeleteBright },
     NvimTreeIndentMarker      { fg = p.black_bright.darken(20) },
-    NvimTreeNormal            { Normal,  fg = p.black_bright.lighten(70).rotate(-10)  },
+    NvimTreeNormal            { Normal, fg = p.black_bright.lighten(70).rotate(-10)  },
     NvimTreeNormalNC          { NormalNC, fg = p.black_bright.lighten(70).rotate(-10)  },
     NvimTreeFolderName        { fg = p.black_bright.lighten(40).saturate(30).rotate(-10)  },
     NvimTreeEmptyFolderName   { NvimTreeFolderName },
@@ -363,6 +364,29 @@ local theme = lush(function(injected_functions)
     NeoTreeGitStaged          { DiffTextBright },
     NeoTreeHiddenByName       { fg = p.anise.lighten(20).desaturate(50) },
     NeoTreeIndentMarker       { fg = p.black_bright },
+
+    -- fyler.nvim
+    FylerFSDirectoryIcon      { NeoTreeDirectoryIcon },
+    FylerFSDirectoryName      { NeoTreeDirectoryName },
+    FylerFSFile               { NeoTreeFileName },
+    FylerFSLink               { fg = p.anise.lighten(60).desaturate(20) },
+    FylerGitAdded             { NeoTreeGitAdded },
+    FylerGitConflict          { NeoTreeGitConflict },
+    FylerGitDeleted           { NeoTreeGitDeleted },
+    FylerGitIgnored           { NeoTreeGitIgnored },
+    FylerGitModified          { NeoTreeGitModified },
+    FylerGitUnstaged          { NeoTreeGitUnstaged },
+    FylerGitUntracked         { NeoTreeGitUntracked },
+    FylerGitStaged            { DiffTextBright },
+    FylerGitRenamed           { NvimTreeGitRenamed },
+    FylerGreen                { fg = p.green },
+    FylerGrey                 { fg = p.dark_fg_dim },
+    FylerRed                  { fg = p.red },
+    FylerYellow               { fg = p.yellow },
+    FylerBorder               { FloatBorder },
+    FylerIndentMarker         { NeoTreeIndentMarker },
+    FylerNormal               { NvimTreeNormal },
+    FylerNormalNC             { NvimTreeNormalNC },
 
     -- Telescope.nvim
     TelescopeBorder           { ActivePopupBorder },
