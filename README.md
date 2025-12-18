@@ -81,6 +81,7 @@ This colorscheme is built with [Lush.nvim](https://github.com/rktjmp/lush.nvim),
 
 Themes are generated from the palette and highlight definitions in `lua/lush_theme/lavi/`.
 The files in other directories are automatically generated, so don't edit them directly. Re-generate the themes with `just build` (requires [just](https://github.com/casey/just)).
+Format with `just fmt` - requires [StyLua](https://github.com/JohnnyMorganz/StyLua) and [dprint](https://dprint.dev/).
 
 ## License
 
