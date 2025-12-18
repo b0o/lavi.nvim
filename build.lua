@@ -5,7 +5,6 @@ local function project_root()
   return vim.fn.fnamemodify(debug.getinfo(2, "S").source:sub(2):match("(.*/)"), ":p:h")
 end
 
----@diagnostic disable-next-line: missing-fields
 require("lazy.minit").setup({
   spec = {
     "rktjmp/lush.nvim",
