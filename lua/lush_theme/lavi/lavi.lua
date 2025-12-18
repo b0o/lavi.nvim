@@ -1,13 +1,12 @@
 --# selene: allow(undefined_variable)
 ---@diagnostic disable: undefined-global
 local lush = require("lush")
-local palette = require'lavi.palette'
-
-local p = palette
+local p = require("lush_theme.lavi.palette")
 
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
+    -- stylua: ignore start
     ---- General highlight groups
     Normal           { fg = p.dark_fg, bg = p.dark_bg.lighten(1).saturate(1) }, -- Normal text
     NormalNC         { fg = p.dark_fg, bg = p.dark_bg_dark.darken(10) }, -- normal text in non-current windows
@@ -21,20 +20,20 @@ local theme = lush(function(injected_functions)
     CursorColumn     { bg = p.black }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine       { bg = p.dark_bg_med }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     CursorLineNC     { bg = p.dark_bg.lighten(6) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-    Directory        { fg = p.violet_bright.lighten(50).desaturate(10) }, -- Directory names (and other special names in listings)
+    Directory        { fg = p.bright_violet.lighten(50).desaturate(10) }, -- Directory names (and other special names in listings)
 
     EndOfBuffer      { fg = p.black }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor       { }, -- Cursor in a focused terminal
     TermCursorNC     { bg = p.black }, -- Cursor in an unfocused terminal
-    ErrorMsg         { fg = p.white_bright, bg = p.red_bright }, -- Error messages on the command line
-    WinSeparator     { fg = p.black_med }, -- Column separating vertically split windows
+    ErrorMsg         { fg = p.bright_white, bg = p.bright_red }, -- Error messages on the command line
+    WinSeparator     { fg = p.med_black }, -- Column separating vertically split windows
     VertSplit        { WinSeparator },
-    Folded           { fg = p.black_bright, bg = p.black, gui = 'bold' }, -- Line used for closed folds
-    FoldColumn       { fg = p.black_bright }, -- 'foldcolumn'
+    Folded           { fg = p.bright_black, bg = p.black, gui = 'bold' }, -- Line used for closed folds
+    FoldColumn       { fg = p.bright_black }, -- 'foldcolumn'
     SignColumn       { fg = p.black }, -- Column where |signs| are displayed
-    IncSearch        { fg = p.white_bright, bg = p.violet, gui = 'underline' }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    IncSearch        { fg = p.bright_white, bg = p.violet, gui = 'underline' }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     -- Substitute       { }, -- |:substitute| replacement text highlighting
-    LineNr           { fg = p.black_bright }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr           { fg = p.bright_black }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     -- LineNrAbove      { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     -- LineNrBelow      { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     CursorLineNr     { fg = p.dark_fg }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
@@ -46,11 +45,11 @@ local theme = lush(function(injected_functions)
     -- MsgArea          { }, -- Area for messages and cmdline
     -- MsgSeparator     { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg          { fg = p.dark_fg }, -- |more-prompt|
-    NonText          { fg = p.black_med }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    FloatBorder      { fg = p.black_med }, -- Border of floating windows.
+    NonText          { fg = p.med_black }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    FloatBorder      { fg = p.med_black }, -- Border of floating windows.
     -- FloatTitle       { }, -- Title of floating windows.
     Pmenu            { fg = p.dark_fg, bg = p.dark_bg.lighten(30) }, -- Popup menu: Normal item.
-    PmenuSel         { fg = p.cyan, bg = p.black_bright }, -- Popup menu: Selected item.
+    PmenuSel         { fg = p.cyan, bg = p.bright_black }, -- Popup menu: Selected item.
     -- PmenuKind        { }, -- Popup menu: Normal item "kind"
     -- PmenuKindSel     { }, -- Popup menu: Selected item "kind"
     -- PmenuExtra       { }, -- Popup menu: Normal item "extra text"
@@ -61,12 +60,12 @@ local theme = lush(function(injected_functions)
     -- QuickFixLine     { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search           { fg = p.blush }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
     CurSearch        { bg = p.blush, fg = p.dark_bg }, -- Highlighting a search pattern under the cursor (see 'hlsearch').
-    SpecialKey       { fg = p.black_bright }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
+    SpecialKey       { fg = p.bright_black }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad         { gui = 'undercurl' }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     SpellCap         { gui = 'undercurl' }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     SpellLocal       { gui = 'undercurl' }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     SpellRare        { gui = 'undercurl' }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-    StatusLine       { bg = p.dark_bg_dark, fg = p.black_med }, -- Status line of current window
+    StatusLine       { bg = p.dark_bg_dark, fg = p.med_black }, -- Status line of current window
     StatusLineNC     { StatusLine }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     StatusLineTerm   { StatusLine }, -- Status line of current window
     StatusLineTermNC { StatusLineNC }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
@@ -76,10 +75,10 @@ local theme = lush(function(injected_functions)
     -- StatusLineTermNC { fg = g.fg, bg = p.black_bright }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine          { fg = p.dark_fg, bg = p.black }, -- Tab pages line, not active tab page label
     TabLineFill      { fg = p.dark_fg, bg = p.black }, -- Tab pages line, where there are no labels
-    TabLineSel       { fg = p.cyan, bg = p.black_bright }, -- Tab pages line, active tab page label
+    TabLineSel       { fg = p.cyan, bg = p.bright_black }, -- Tab pages line, active tab page label
     Title            { fg = p.dark_fg }, -- Titles for output from ":set all", ":autocmd" etc.
-    Visual           { bg = p.dark_bg.lighten(30) }, -- Visual mode selection
-    VisualNOS        { bg = p.black_med }, -- Visual mode selection when vim is "Not Owning the Selection".
+    Visual           { bg = p.selection_bg }, -- Visual mode selection
+    VisualNOS        { bg = p.med_black }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg       { fg = p.black, bg = p.yellow }, -- Warning messages
     -- Whitespace       { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- Winseparator     { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
@@ -101,12 +100,12 @@ local theme = lush(function(injected_functions)
 
     DiffAdd          { bg = p.bg.mix(p.green, 15).saturate(5) }, -- Diff mode: Added line |diff.txt|
     DiffChange       { bg = p.bg.mix(p.skyblue, 10) }, -- Diff mode: Changed line |diff.txt|
-    DiffDelete       { fg = p.black_med }, -- Diff mode: Deleted line |diff.txt|
+    DiffDelete       { fg = p.med_black }, -- Diff mode: Deleted line |diff.txt|
     DiffText         { bg = p.bg.mix(p.blue, 20) }, -- Diff mode: Changed text within a changed line |diff.txt|
 
-    DiffAddBright     { fg = p.green.lighten(10) }, -- Diff mode: Added line |diff.txt|
-    DiffChangeBright  { fg = p.yellow.lighten(10)  }, -- Diff mode: Changed line |diff.txt|
-    DiffDeleteBright  { fg = p.red_bright.lighten(10)  }, -- Diff mode: Deleted line |diff.txt|
+    DiffAddBright     { fg = p.bright_green }, -- Diff mode: Added line |diff.txt|
+    DiffChangeBright  { fg = p.bright_yellow  }, -- Diff mode: Changed line |diff.txt|
+    DiffDeleteBright  { fg = p.bright_red.lighten(10)  }, -- Diff mode: Deleted line |diff.txt|
     DiffTextBright    { fg = p.oceanblue.lighten(10)  }, -- Diff mode: Changed text within a changed line |diff.txt|
 
     ---- Standard syntax highlighting
@@ -158,7 +157,7 @@ local theme = lush(function(injected_functions)
 
     -- Underlined       { gui = "underline" }, -- Text that stands out, HTML links
     -- Ignore           { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
-    Error            { fg = p.dark_bg_bright, bg = p.red_bright }, -- Any erroneous construct
+    Error            { fg = p.dark_bg_bright, bg = p.bright_red }, -- Any erroneous construct
     Todo             { fg = p.yellow }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     ---- LSP
@@ -288,18 +287,12 @@ local theme = lush(function(injected_functions)
     NeogitHunkHeader          { fg = p.dark_fg_dim, bg = p.dark_bg.lighten(15).saturate(5) },
     NeogitHunkHeaderHighlight { fg = p.white, bg = p.dark_bg.lighten(30).saturate(10) },
     NeogitHunkHeaderCursor    { fg = p.white, bg = p.dark_bg.lighten(45).saturate(10) },
-    -- NeogitDiffAdd             { fg = p.green.desaturate(40).lighten(20) },
-    -- NeogitDiffAddHighlight    { fg = p.green.lighten(10) },
-    -- NeogitDiffAddCursor       { fg = p.green.lighten(10), bg = p.dark_bg_med },
     NeogitDiffAdd             { bg = p.bg.mix(p.green.darken(30), 30) },
     NeogitDiffAddHighlight    { bg = p.bg.mix(p.green.darken(30), 40) },
     NeogitDiffAddCursor       { bg = p.bg.mix(p.green.darken(30), 50) },
-    -- NeogitDiffDelete          { fg = p.red_bright.desaturate(40).lighten(20) },
-    -- NeogitDiffDeleteHighlight { fg = p.red_bright.lighten(10) },
-    -- NeogitDiffDeleteCursor    { fg = p.red_bright.lighten(10), bg = p.dark_bg_med },
-    NeogitDiffDelete          { bg = p.bg.mix(p.red_bright.darken(30), 30) },
-    NeogitDiffDeleteHighlight { bg = p.bg.mix(p.red_bright.darken(30), 40) },
-    NeogitDiffDeleteCursor    { bg = p.bg.mix(p.red_bright.darken(30), 50) },
+    NeogitDiffDelete          { bg = p.bg.mix(p.bright_red.darken(30), 30) },
+    NeogitDiffDeleteHighlight { bg = p.bg.mix(p.bright_red.darken(30), 40) },
+    NeogitDiffDeleteCursor    { bg = p.bg.mix(p.bright_red.darken(30), 50) },
     NeogitFloatBorder         { ActivePopupBorder },
 
     ---- git-conflict.nvim
@@ -313,7 +306,7 @@ local theme = lush(function(injected_functions)
     ---- avante.nvim
     AvanteTitle               { fg = p.black, bg = p.green.lighten(10).saturate(10) },
     AvanteReversedTitle       { fg = p.green.lighten(10).saturate(10) },
-    AvanteSubtitle            { fg = p.white_bright, bg = p.blue.lighten(10).saturate(10) },
+    AvanteSubtitle            { fg = p.bright_white, bg = p.blue.lighten(10).saturate(10) },
     AvanteReversedSubtitle    { fg = p.blue.lighten(10).saturate(10) },
     AvanteThirdTitle          { fg = p.black, bg = p.yellow.lighten(10).saturate(10) },
     AvanteReversedThirdTitle  { fg = p.yellow.lighten(10).saturate(10) },
@@ -325,30 +318,30 @@ local theme = lush(function(injected_functions)
     AvanteConflictAncestor      { GitConflictAncestor },
     AvanteConflictAncestorLabel { GitConflictAncestorLabel },
 
-    AvanteInlineHint            { fg = p.violet_bright.lighten(35).saturate(-10) },
+    AvanteInlineHint            { fg = p.bright_violet.lighten(35).saturate(-10) },
 
     ---- nvim-tree.lua
     NvimTreeGitDirty          { DiffChangeBright },
     NvimTreeGitStaged         { DiffTextBright },
-    NvimTreeGitMerge          { fg = p.violet_bright },
+    NvimTreeGitMerge          { fg = p.bright_violet },
     NvimTreeGitRenamed        { fg = p.orange },
     NvimTreeGitNew            { DiffAddBright },
     NvimTreeGitDeleted        { DiffDeleteBright },
-    NvimTreeIndentMarker      { fg = p.black_bright.darken(20) },
-    NvimTreeNormal            { Normal, fg = p.black_bright.lighten(70).rotate(-10)  },
-    NvimTreeNormalNC          { NormalNC, fg = p.black_bright.lighten(70).rotate(-10)  },
-    NvimTreeFolderName        { fg = p.black_bright.lighten(40).saturate(30).rotate(-10)  },
+    NvimTreeIndentMarker      { fg = p.bright_black.darken(20) },
+    NvimTreeNormal            { Normal, fg = p.bright_black.lighten(70).rotate(-10)  },
+    NvimTreeNormalNC          { NormalNC, fg = p.bright_black.lighten(70).rotate(-10)  },
+    NvimTreeFolderName        { fg = p.bright_black.lighten(40).saturate(30).rotate(-10)  },
     NvimTreeEmptyFolderName   { NvimTreeFolderName },
-    NvimTreeOpenedFolderName  { fg = p.black_bright.lighten(70).saturate(50).rotate(-10)  },
-    NvimTreeOpenedHL          { NvimTreeNormal, fg = p.violet_bright.lighten(40).saturate(10)  },
+    NvimTreeOpenedFolderName  { fg = p.bright_black.lighten(70).saturate(50).rotate(-10)  },
+    NvimTreeOpenedHL          { NvimTreeNormal, fg = p.bright_violet.lighten(40).saturate(10)  },
     NvimTreeExecFile          { gui = 'bold,italic' },
     NvimTreeSpecialFile       { gui = 'bold' },
 
     ---- Neo-tree.nvim
-    NeoTreeBufferNumber       { fg = p.black_bright },
+    NeoTreeBufferNumber       { fg = p.bright_black },
     NeoTreeCursorLine         { CursorLine },
-    NeoTreeDirectoryIcon      { fg = p.violet_bright.lighten(40).desaturate(50) },
-    NeoTreeDirectoryName      { fg = p.violet_bright.lighten(30).desaturate(10) },
+    NeoTreeDirectoryIcon      { fg = p.bright_violet.lighten(40).desaturate(50) },
+    NeoTreeDirectoryName      { fg = p.bright_violet.lighten(30).desaturate(10) },
     NeoTreeDotfile            { fg = p.anise.lighten(50).desaturate(10) },
     NeoTreeFileIcon           { fg = p.anise.lighten(40).desaturate(60) },
     NeoTreeFileName           { fg = p.anise.lighten(50).desaturate(10) },
@@ -356,14 +349,14 @@ local theme = lush(function(injected_functions)
     NeoTreeFilterTerm         { fg = p.anise.lighten(50).desaturate(10) },
     NeoTreeGitAdded           { fg = p.green.lighten(60) },
     NeoTreeGitConflict        { sp = p.red, gui = 'undercurl' },
-    NeoTreeGitDeleted         { fg = p.red_bright.lighten(40) },
+    NeoTreeGitDeleted         { fg = p.bright_red.lighten(40) },
     NeoTreeGitIgnored         { fg = p.anise.lighten(20).desaturate(50) },
     NeoTreeGitModified        { fg = p.yellow.lighten(30) },
     NeoTreeGitUnstaged        { fg = p.yellow.lighten(10) },
     NeoTreeGitUntracked       { fg = p.yellow.lighten(60) },
     NeoTreeGitStaged          { DiffTextBright },
     NeoTreeHiddenByName       { fg = p.anise.lighten(20).desaturate(50) },
-    NeoTreeIndentMarker       { fg = p.black_bright },
+    NeoTreeIndentMarker       { fg = p.bright_black },
 
     -- fyler.nvim
     FylerFSDirectoryIcon      { NeoTreeDirectoryIcon },
@@ -411,7 +404,7 @@ local theme = lush(function(injected_functions)
     CmpNormal                 { Normal },
     -- CmpNormal                 { fg = p.fg, bg = p.bg.lighten(10) },
     CmpBorder                 { ActivePopupBorder },
-    CmpSel                    { bg = p.dark_bg.saturate(15).lighten(50), fg = p.white_bright, gui = 'bold' },
+    CmpSel                    { bg = p.dark_bg.saturate(15).lighten(50), fg = p.bright_white, gui = 'bold' },
 
     CmpItemMenu               { fg = p.dust, gui = "italic" },
     CmpItemAbbr               { fg = p.dark_fg },
@@ -420,13 +413,13 @@ local theme = lush(function(injected_functions)
 
     CmpItemAbbrDeprecated     { fg = p.cayenne, gui = "strikethrough" },
 
-    CmpItemKind               { fg = p.white_bright },
+    CmpItemKind               { fg = p.bright_white },
 
-    CmpItemKindMethod         { bg = p.velvet.darken(5), fg = p.white_bright },
+    CmpItemKindMethod         { bg = p.velvet.darken(5), fg = p.bright_white },
     CmpItemKindConstructor    { CmpItemKindMethod },
     CmpItemKindFunction       { CmpItemKindMethod },
 
-    CmpItemKindVariable       { bg = p.blush.darken(5), fg = p.white_bright },
+    CmpItemKindVariable       { bg = p.blush.darken(5), fg = p.bright_white },
     CmpItemKindConstant       { CmpItemKindVariable },
     CmpItemKindValue          { CmpItemKindVariable },
     CmpItemKindField          { CmpItemKindVariable },
@@ -434,28 +427,28 @@ local theme = lush(function(injected_functions)
     CmpItemKindEnumMember     { CmpItemKindVariable },
     CmpItemKindReference      { CmpItemKindVariable },
 
-    CmpItemKindOperator       { bg = p.matcha.darken(5), fg = p.white_bright },
+    CmpItemKindOperator       { bg = p.matcha.darken(5), fg = p.bright_white },
     CmpItemKindKeyword        { CmpItemKindOperator },
     CmpItemKindTypeParameter  { CmpItemKindOperator },
 
-    CmpItemKindModule         { bg = p.yellow.darken(5), fg = p.white_bright },
+    CmpItemKindModule         { bg = p.yellow.darken(5), fg = p.bright_white },
     CmpItemKindClass          { CmpItemKindModule },
     CmpItemKindInterface      { CmpItemKindModule },
     CmpItemKindStruct         { CmpItemKindModule },
     CmpItemKindEnum           { CmpItemKindModule },
 
-    CmpItemKindEvent          { bg = p.light_lavender.darken(5), fg = p.white_bright },
+    CmpItemKindEvent          { bg = p.light_lavender.darken(5), fg = p.bright_white },
     CmpItemKindUnit           { CmpItemKindEvent },
     CmpItemKindFile           { CmpItemKindEvent },
     CmpItemKindFolder         { CmpItemKindEvent },
 
-    CmpItemKindText           { bg = p.anise.darken(5), fg = p.white_bright },
+    CmpItemKindText           { bg = p.anise.darken(5), fg = p.bright_white },
 
-    CmpItemKindSnippet        { bg = p.violet, fg = p.white_bright },
-    CmpItemKindColor          { bg = p.mint.darken(0), fg = p.white_bright },
+    CmpItemKindSnippet        { bg = p.violet, fg = p.bright_white },
+    CmpItemKindColor          { bg = p.mint.darken(0), fg = p.bright_white },
 
     ---- nvim-cmp (neopyter)
-    CmpItemKindMagic          { bg = p.orange.desaturate(10).lighten(15), fg = p.white_bright },
+    CmpItemKindMagic          { bg = p.orange.desaturate(10).lighten(15), fg = p.bright_white },
     CmpItemKindPath           { CmpItemKindMagic },
     CmpItemKindDictkey        { CmpItemKindMagic },
     CmpItemKindInstance       { CmpItemKindMagic },
@@ -525,13 +518,13 @@ local theme = lush(function(injected_functions)
     FlashMatch                { bg = p.velvet.darken(10), fg = p.white },
     FlashCurrent              { bg = p.blush, fg = p.dark_bg_med },
     FlashLabel                { bg = p.yellow, fg = p.dark_bg_med },
-    FlashPrompt               { bg = p.violet_med, fg = p.white },
-    FlashPromptIcon           { bg = p.violet_med, fg = p.white },
+    FlashPrompt               { bg = p.med_violet, fg = p.white },
+    FlashPromptIcon           { bg = p.med_violet, fg = p.white },
     FlashCursor               { bg = p.skyblue, fg = p.dark_bg_med },
 
     ---- nvim-treesitter-context
     TreesitterContext         { bg = p.dark_bg.lighten(15).desaturate(5) },
-    TreesitterContextLineNumber { fg = p.black_bright.lighten(10), bg = p.dark_bg.lighten(5) },
+    TreesitterContextLineNumber { fg = p.bright_black.lighten(10), bg = p.dark_bg.lighten(5) },
     -- TreesitterContextSeparator {},
     -- TreesitterContextBottom    {},
 
@@ -567,14 +560,14 @@ local theme = lush(function(injected_functions)
     NavicIconsArray           { Type },
     NavicIconsObject          { Type },
     NavicIconsKey             { Identifier },
-    NavicIconsNull            { fg = p.black_bright },
+    NavicIconsNull            { fg = p.bright_black },
     NavicIconsEnumMember      { Identifier },
     NavicIconsStruct          { Type },
     NavicIconsEvent           { Type },
     NavicIconsOperator        { Statement },
     NavicIconsTypeParameter   { Type },
     NavicText                 { Identifier },
-    NavicSeparator            { fg = p.black_bright.lighten(10) },
+    NavicSeparator            { fg = p.bright_black.lighten(10) },
 
     ---- indent-blankline.nvim
     IblIndent                 { NonText },
@@ -609,7 +602,7 @@ local theme = lush(function(injected_functions)
     DapUIFloatNormal        { NormalFloat },
     DapUIFloatBorder        { FloatBorder },
     DapUIWatchesEmpty       { fg = p.cayenne },
-    DapUIWatchesValue       { fg = p.violet_bright },
+    DapUIWatchesValue       { fg = p.bright_violet },
     DapUIWatchesError       { fg = p.red },
     DapUIBreakpointsPath    { fg = p.cyan },
     DapUIBreakpointsInfo    { fg = p.cyan.rotate(20) },
@@ -630,7 +623,7 @@ local theme = lush(function(injected_functions)
 
 
     --- RenderMarkdown.nvim
-    RenderMarkdownH1Bg           { fg = p.white_bright, bg = p.lavender.lighten(20).saturate(-40).mix(p.bg, 35), bold = true },
+    RenderMarkdownH1Bg           { fg = p.bright_white, bg = p.lavender.lighten(20).saturate(-40).mix(p.bg, 35), bold = true },
     RenderMarkdownH2Bg           { fg = p.white.darken(2), bg = p.blue.lighten(-20).saturate(-50).mix(p.bg, 75), bold = true },
     RenderMarkdownH3Bg           { fg = p.white.darken(8).desaturate(15), bg = p.blue.lighten(-20).saturate(-50).mix(p.bg, 90), bold = true },
     RenderMarkdownH4Bg           { fg = p.white.darken(8).desaturate(15), bg = p.blue.lighten(-20).saturate(-50).mix(p.bg, 95), bold = true },
@@ -650,7 +643,7 @@ local theme = lush(function(injected_functions)
     RenderMarkdownTodo           { Todo },
     RenderMarkdownLink           { fg = p.blue.lighten(30).saturate(10), underline = true },
     RenderMarkdownWikiLink       { RenderMarkdownLink },
-    RenderMarkdownError          { fg = p.red_bright.lighten(10) },
+    RenderMarkdownError          { fg = p.bright_red.lighten(10) },
     RenderMarkdownWarn           { fg = p.yellow.lighten(10) },
     RenderMarkdownInfo           { fg = p.cyan.lighten(10) },
     RenderMarkdownHint           { fg = p.blue.lighten(30).saturate(10) },
@@ -665,6 +658,7 @@ local theme = lush(function(injected_functions)
     RenderMarkdownTableFill      { bg = p.bg },
     RenderMarkdownHtmlComment    { Comment },
     RenderMarkdownMath           { fg = p.blue.lighten(30).saturate(10), italic = true },
+    -- stylua: ignore end
   }
 end)
 
