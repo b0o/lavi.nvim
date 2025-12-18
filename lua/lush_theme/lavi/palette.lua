@@ -44,6 +44,7 @@ M.dark_fg_nc = hsl("#A89CCF")
 M.fg = M.dark_fg
 M.fg_dim = M.dark_fg_dim
 M.fg_nc = M.dark_fg_nc
+M.fg_bright = M.bright_white
 
 M.bg = M.dark_bg
 M.bg_dark = M.dark_bg_dark
@@ -130,4 +131,8 @@ M.deep_velvet = hsl("#8F8FB3")
 
 M.light_lavender = hsl("#EAD6FF")
 
-return M
+return setmetatable(M, {
+  __index = function(_, key)
+    error("Invalid key: " .. key)
+  end,
+})

@@ -111,8 +111,8 @@ vim.api.nvim_create_user_command("LaviBuild", function()
 
   builder.run(
     palette,
-    require("shipwright.transform.contrib.alacritty"),
-    { require("shipwright.transform.overwrite"), "contrib/alacritty/lavi.yaml" }
+    require("lush_theme.lavi.alacritty"),
+    { require("shipwright.transform.overwrite"), "contrib/alacritty/lavi.toml" }
   )
 
   builder.run(

@@ -39,6 +39,7 @@ return {
   deep_velvet = "#8F8FB3",
   dust = "#E9D0F1",
   fg = "#EDE7FE",
+  fg_bright = "#FFFFFF",
   fg_dim = "#DED3FD",
   fg_nc = "#A79BCF",
   green = "#7CF89B",
