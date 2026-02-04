@@ -21,6 +21,14 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
 },
 ```
 
+With Nix flakes (see [Nix](#nix) section for more options):
+
+```nix
+programs.neovim.plugins = [
+  inputs.lavi.packages.${pkgs.system}.lavi-nvim
+];
+```
+
 ### Alacritty
 
 1. Copy [`contrib/alacritty/lavi.toml`](./contrib/alacritty/lavi.toml) to `~/.config/alacritty/lavi.toml`
@@ -83,6 +91,69 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 1. Copy [`contrib/zellij/lavi.kdl`](./contrib/zellij/lavi.kdl) to `~/.config/zellij/themes/lavi.kdl`
 2. Set `theme "lavi"` in your `~/.config/zellij/config.kdl`
+
+### Nix
+
+Lavi provides a Nix flake with multiple outputs for flexible integration.
+
+#### Flake Outputs
+
+| Output | Description |
+|--------|-------------|
+| `packages.<system>.lavi-nvim` | Minimal Neovim plugin (runtime only, no lush dependency) |
+| `packages.<system>.lavi-nvim-dev` | Full Neovim plugin with lush sources for customization |
+| `packages.<system>.lavi-themes` | All theme files from `contrib/` |
+| `lib.themes.<app>` | Raw theme content as strings (e.g., `lib.themes.ghostty`) |
+| `homeManagerModules.lavi` | Home-manager module with per-app options |
+
+#### Home-Manager Module
+
+Add to your flake inputs:
+
+```nix
+inputs.lavi.url = "github:b0o/lavi.nvim";
+```
+
+Import and configure:
+
+```nix
+{ inputs, pkgs, ... }:
+{
+  imports = [ inputs.lavi.homeManagerModules.lavi ];
+
+  lavi = {
+    neovim.enable = true;    # Adds lavi-nvim to programs.neovim.plugins
+    ghostty.enable = true;   # Configures programs.ghostty.themes.lavi
+    alacritty.enable = true; # Merges colors into programs.alacritty.settings
+    kitty.enable = true;     # Appends to programs.kitty.extraConfig
+    foot.enable = true;      # Merges into programs.foot.settings
+    btop.enable = true;      # Writes theme file and sets color_theme
+  };
+}
+```
+
+#### Manual Installation
+
+For users who manage their own config files:
+
+```nix
+# Symlink theme files
+home.file.".config/ghostty/themes/lavi.conf".source =
+  "${inputs.lavi.packages.${pkgs.system}.lavi-themes}/ghostty/lavi.conf";
+
+# Or use raw content
+xdg.configFile."ghostty/themes/lavi.conf".text = inputs.lavi.lib.themes.ghostty;
+```
+
+#### Development Shell
+
+For contributing or modifying themes:
+
+```bash
+nix develop github:b0o/lavi.nvim
+lavi-generate-themes  # Regenerate all theme files
+lavi-format           # Format with stylua and dprint
+```
 
 ## Contributing
 
