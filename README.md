@@ -104,6 +104,7 @@ Lavi provides a Nix flake with multiple outputs for flexible integration.
 | `packages.<system>.lavi-nvim-dev` | Full Neovim plugin with lush sources for customization |
 | `packages.<system>.lavi-themes` | All theme files from `contrib/` |
 | `lib.themes.<app>` | Raw theme content as strings (e.g., `lib.themes.ghostty`) |
+| `lib.base16` | Base16 color scheme for Stylix integration |
 | `homeManagerModules.lavi` | Home-manager module with per-app options |
 
 #### Home-Manager Module
@@ -135,6 +136,19 @@ Import and configure:
   };
 }
 ```
+
+#### Stylix Integration
+
+Lavi provides a base16 color scheme for [Stylix](https://github.com/danth/stylix):
+
+```nix
+{ inputs, ... }:
+{
+  stylix.base16Scheme = inputs.lavi.lib.base16;
+}
+```
+
+This applies the Lavi color palette across all Stylix-supported programs automatically.
 
 #### Manual Installation
 

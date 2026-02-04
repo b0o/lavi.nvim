@@ -23,6 +23,7 @@
         # Uses pre-committed files for fast evaluation (no build needed)
         lib.themes = {
           alacritty = builtins.readFile ./contrib/alacritty/lavi.toml;
+          base16 = builtins.readFile ./contrib/base16/lavi.yaml;
           bottom = builtins.readFile ./contrib/bottom/lavi.toml;
           btop = builtins.readFile ./contrib/btop/lavi.theme;
           foot = builtins.readFile ./contrib/foot/lavi.ini;
@@ -32,6 +33,29 @@
           wezterm = builtins.readFile ./contrib/wezterm/lavi.toml;
           windows_terminal = builtins.readFile ./contrib/windows_terminal/lavi.json;
           zellij = builtins.readFile ./contrib/zellij/lavi.kdl;
+        };
+
+        # Base16 color scheme for Stylix integration
+        # See: https://github.com/chriskempson/base16/blob/main/styling.md
+        lib.base16 = {
+          scheme = "Lavi";
+          author = "Maddison Hellstrom (https://github.com/b0o)";
+          base00 = "25213B"; # Default Background
+          base01 = "2E2A37"; # Lighter Background (status bars, line numbers)
+          base02 = "584F8C"; # Selection Background
+          base03 = "8876A7"; # Comments, Invisibles
+          base04 = "A79BCF"; # Dark Foreground (status bars)
+          base05 = "EDE7FE"; # Default Foreground
+          base06 = "EEE5FF"; # Light Foreground
+          base07 = "FFFFFF"; # Light Background
+          base08 = "F2637E"; # Variables, XML Tags, Diff Deleted (red)
+          base09 = "FF9A6B"; # Integers, Boolean, Constants (orange)
+          base0A = "FFD080"; # Classes, Search Highlight (yellow)
+          base0B = "7CF89B"; # Strings, Diff Inserted (green)
+          base0C = "2CEDC0"; # Support, Regex, Escape Characters (cyan)
+          base0D = "7583FF"; # Functions, Methods (blue)
+          base0E = "B98AFF"; # Keywords, Storage (magenta)
+          base0F = "EAB9F9"; # Deprecated, Embedded Language Tags (blush/pink)
         };
       };
 
