@@ -31,6 +31,10 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
    ]
    ```
 
+### Bottom
+
+1. Copy the contents of [`contrib/bottom/lavi.toml`](./contrib/bottom/lavi.toml) into your `~/.config/bottom/bottom.toml`
+
 ### Foot
 
 1. Copy the contents of [`contrib/foot/lavi.ini`](./contrib/foot/lavi.ini) into your `~/.config/foot/foot.ini`

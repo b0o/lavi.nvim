@@ -1,0 +1,71 @@
+local p = require("lush_theme.lavi.palette")
+
+-- Muted, softer colors matching the nvim theme aesthetic
+local M = {
+  styles = {
+    cpu = {
+      all_entry_color = p.fg_dim,
+      avg_entry_color = p.cyan.desaturate(20).lighten(30),
+      cpu_core_colors = {
+        p.velvet.lighten(10),
+        p.anise.lighten(50).saturate(40),
+        p.matcha,
+        p.yellow.lighten(30).desaturate(20),
+        p.blush,
+        p.cyan.desaturate(30).lighten(20),
+        p.orange.desaturate(20).lighten(20),
+        p.bright_violet.desaturate(20),
+        p.oceanblue.desaturate(10),
+        p.lavender.lighten(20).desaturate(30),
+        p.green.lighten(40).desaturate(30),
+        p.yellow.lighten(50).desaturate(40),
+        p.cayenne.lighten(20).desaturate(20),
+        p.mint,
+        p.skyblue,
+        p.violet.lighten(30).desaturate(20),
+      },
+    },
+    memory = {
+      ram_color = p.matcha,
+      cache_color = p.bright_black.darken(10),
+      swap_color = p.yellow.lighten(30).desaturate(20),
+      arc_color = p.cyan.desaturate(30).lighten(20),
+      gpu_colors = {
+        p.lavender.lighten(20).desaturate(30),
+        p.oceanblue.desaturate(10),
+        p.orange.desaturate(20).lighten(20),
+        p.violet.lighten(30).desaturate(20),
+        p.velvet.lighten(10),
+        p.anise.lighten(50).saturate(40),
+      },
+    },
+    network = {
+      rx_color = p.matcha,
+      tx_color = p.velvet.lighten(10),
+      rx_total_color = p.green.lighten(40).desaturate(30),
+      tx_total_color = p.lavender.lighten(20).desaturate(30),
+    },
+    battery = {
+      high_battery_color = p.matcha,
+      medium_battery_color = p.yellow.lighten(30).desaturate(20),
+      low_battery_color = p.cayenne.lighten(10).desaturate(10),
+    },
+    tables = {
+      headers = { color = p.fg_dim, bold = true },
+    },
+    graphs = {
+      graph_color = p.med_black,
+      legend_text = { color = p.fg_nc },
+    },
+    widgets = {
+      border_color = p.med_black,
+      selected_border_color = p.anise.lighten(30).desaturate(30),
+      widget_title = { color = p.fg_dim, bold = true },
+      text = { color = p.fg_nc },
+      selected_text = { color = p.bright_white, bg_color = p.deep_anise },
+      disabled_text = { color = p.bright_black.darken(20) },
+    },
+  },
+}
+
+return M
