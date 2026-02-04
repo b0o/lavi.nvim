@@ -159,12 +159,27 @@ lavi-generate-themes  # Regenerate all theme files
 lavi-format           # Format with stylua and dprint
 ```
 
+#### Verifying Themes
+
+To verify committed theme files match what would be generated:
+
+```bash
+nix flake check
+```
+
+This runs automatically in CI. On pushes to main, themes are auto-regenerated and committed if needed. PRs will fail if themes are out of date.
+
 ## Contributing
 
 This colorscheme is built with [Lush.nvim](https://github.com/rktjmp/lush.nvim), ensure you have it installed.
 
 Themes are generated from the palette and highlight definitions in `lua/lush_theme/lavi/`.
-The files in other directories are automatically generated, so don't edit them directly. Re-generate the themes with `just build` (requires [just](https://github.com/casey/just)).
+The files in `contrib/`, `nix/themes/`, `colors/`, and `lua/lavi/` are automatically generated - don't edit them directly.
+
+Re-generate themes with:
+- `just build` (requires [just](https://github.com/casey/just)), or
+- `nix develop -c lavi-generate-themes`
+
 Format with `just fmt` - requires [StyLua](https://github.com/JohnnyMorganz/StyLua) and [dprint](https://dprint.dev/).
 
 ## License
