@@ -35,6 +35,11 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 1. Copy the contents of [`contrib/bottom/lavi.toml`](./contrib/bottom/lavi.toml) into your `~/.config/bottom/bottom.toml`
 
+### Btop
+
+1. Copy [`contrib/btop/lavi.theme`](./contrib/btop/lavi.theme) to `~/.config/btop/themes/lavi.theme`
+2. Set `color_theme = "lavi"` in your `~/.config/btop/btop.conf` or select it from the options menu
+
 ### Foot
 
 1. Copy the contents of [`contrib/foot/lavi.ini`](./contrib/foot/lavi.ini) into your `~/.config/foot/foot.ini`
