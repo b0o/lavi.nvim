@@ -87,5 +87,5 @@ return {
   walnut = "#CDB898",
   white = "#EEE5FF",
   yam = "#E86F54",
-  yellow = "#FFD080",
+  yellow = "#FFD080"
 }
