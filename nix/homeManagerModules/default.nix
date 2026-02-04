@@ -44,10 +44,14 @@ in
 {
   options.lavi = {
     alacritty.enable = lib.mkEnableOption "Lavi theme for Alacritty";
+    bottom.enable = lib.mkEnableOption "Lavi theme for Bottom";
     btop.enable = lib.mkEnableOption "Lavi theme for Btop";
     foot.enable = lib.mkEnableOption "Lavi theme for Foot";
     ghostty.enable = lib.mkEnableOption "Lavi theme for Ghostty";
     kitty.enable = lib.mkEnableOption "Lavi theme for Kitty";
+    opencode.enable = lib.mkEnableOption "Lavi theme for Opencode";
+    wezterm.enable = lib.mkEnableOption "Lavi theme for Wezterm";
+    zellij.enable = lib.mkEnableOption "Lavi theme for Zellij";
 
     neovim = {
       enable = lib.mkEnableOption "Lavi colorscheme for Neovim";
@@ -90,6 +94,29 @@ in
     # Neovim - add plugin to programs.neovim.plugins
     (lib.mkIf cfg.neovim.enable {
       programs.neovim.plugins = [ cfg.neovim.package ];
+    })
+
+    # Bottom - merge settings (styles section)
+    (lib.mkIf cfg.bottom.enable {
+      programs.bottom.settings = import ../themes/bottom.nix;
+    })
+
+    # Wezterm - extraConfig with color scheme reference
+    # Note: Wezterm uses Lua config, so we write the theme file and reference it
+    (lib.mkIf cfg.wezterm.enable {
+      xdg.configFile."wezterm/colors/lavi.toml".source = ../../contrib/wezterm/lavi.toml;
+    })
+
+    # Opencode - themes (expects attrset, converted to JSON)
+    (lib.mkIf cfg.opencode.enable {
+      programs.opencode.themes.lavi = builtins.fromJSON (
+        builtins.readFile ../../contrib/opencode/lavi.json
+      );
+    })
+
+    # Zellij - themes (expects KDL string)
+    (lib.mkIf cfg.zellij.enable {
+      programs.zellij.themes.lavi = builtins.readFile ../../contrib/zellij/lavi.kdl;
     })
   ];
 }

@@ -128,6 +128,10 @@ Import and configure:
     kitty.enable = true;     # Appends to programs.kitty.extraConfig
     foot.enable = true;      # Merges into programs.foot.settings
     btop.enable = true;      # Writes theme file and sets color_theme
+    bottom.enable = true;    # Merges styles into programs.bottom.settings
+    opencode.enable = true;  # Configures programs.opencode.themes.lavi
+    wezterm.enable = true;   # Writes theme to wezterm/colors/
+    zellij.enable = true;    # Configures programs.zellij.themes.lavi
   };
 }
 ```
