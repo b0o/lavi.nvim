@@ -5,8 +5,8 @@ foreground = $fg
 selection-foreground = $selection_fg
 selection-background = $selection_bg
 
-cursor-color = $cursor_bg
-cursor-text = $cursor_fg
+cursor-color = $cursor_fg
+cursor-text = $cursor_bg
 
 split-divider-color = $med_black
 

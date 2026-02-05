@@ -231,8 +231,8 @@ local function transform_nix_ghostty(palette)
   local single_keys = {
     { key = "background", value = palette.bg },
     { key = "foreground", value = palette.fg },
-    { key = "cursor-color", value = palette.cursor_bg },
-    { key = "cursor-text", value = palette.cursor_fg },
+    { key = "cursor-color", value = palette.cursor_fg },
+    { key = "cursor-text", value = palette.cursor_bg },
     { key = "selection-background", value = palette.selection_bg },
     { key = "selection-foreground", value = palette.selection_fg },
   }

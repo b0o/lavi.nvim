@@ -2,8 +2,8 @@
 {
   background = "25213B";
   foreground = "EDE7FE";
-  cursor-color = "25213B";
-  cursor-text = "EDE7FE";
+  cursor-color = "EDE7FE";
+  cursor-text = "25213B";
   selection-background = "584F8C";
   selection-foreground = "EDE7FE";
   palette = [
