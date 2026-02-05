@@ -2,67 +2,67 @@
 # For use with home-manager's programs.alacritty.settings
 {
   colors = {
-    primary = {
-      background = "#25213B";
-      foreground = "#EDE7FE";
-      dim_foreground = "#DED3FD";
-      bright_foreground = "#FFFFFF";
+    bright = {
+      black = "#8876A7";
+      blue = "#8591FF";
+      cyan = "#43EFC7";
+      green = "#8BF9A6";
+      magenta = "#BF94FF";
+      red = "#F47189";
+      white = "#FFFFFF";
+      yellow = "#FFD68F";
     };
     cursor = {
-      text = "#EDE7FE";
       cursor = "#25213B";
-    };
-    vi_mode_cursor = {
       text = "#EDE7FE";
-      cursor = "#25213B";
-    };
-    search = {
-      matches = {
-        foreground = "#EAB9F9";
-        background = "#25213B";
-      };
-      focused_match = {
-        foreground = "#25213B";
-        background = "#EAB9F9";
-      };
     };
     footer_bar = {
-      foreground = "#EDE7FE";
       background = "#463E6F";
+      foreground = "#EDE7FE";
     };
     hints = {
-      start = {
-        foreground = "#9487F8";
-        background = "#463E6F";
-      };
       "end" = {
-        foreground = "#EDE7FE";
         background = "#463E6F";
+        foreground = "#EDE7FE";
       };
-    };
-    selection = {
-      text = "#EDE7FE";
-      background = "#584F8C";
+      start = {
+        background = "#463E6F";
+        foreground = "#9487F8";
+      };
     };
     normal = {
       black = "#2E2A37";
-      red = "#F2637E";
-      green = "#7CF89B";
-      yellow = "#FFD080";
       blue = "#7583FF";
-      magenta = "#B98AFF";
       cyan = "#2CEDC0";
+      green = "#7CF89B";
+      magenta = "#B98AFF";
+      red = "#F2637E";
       white = "#EEE5FF";
+      yellow = "#FFD080";
     };
-    bright = {
-      black = "#8876A7";
-      red = "#F47189";
-      green = "#8BF9A6";
-      yellow = "#FFD68F";
-      blue = "#8591FF";
-      magenta = "#BF94FF";
-      cyan = "#43EFC7";
-      white = "#FFFFFF";
+    primary = {
+      background = "#25213B";
+      bright_foreground = "#FFFFFF";
+      dim_foreground = "#DED3FD";
+      foreground = "#EDE7FE";
+    };
+    search = {
+      focused_match = {
+        background = "#EAB9F9";
+        foreground = "#25213B";
+      };
+      matches = {
+        background = "#25213B";
+        foreground = "#EAB9F9";
+      };
+    };
+    selection = {
+      background = "#584F8C";
+      text = "#EDE7FE";
+    };
+    vi_mode_cursor = {
+      cursor = "#25213B";
+      text = "#EDE7FE";
     };
   };
 }
