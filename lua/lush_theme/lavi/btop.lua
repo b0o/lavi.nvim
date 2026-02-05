@@ -1,7 +1,7 @@
 local p = require("lush_theme.lavi.palette")
 
 -- btop theme with muted colors matching the nvim theme aesthetic
-local M = {
+local colors = {
   -- Main background, empty for terminal default
   main_bg = p.bg,
 
@@ -87,4 +87,72 @@ local M = {
   process_end = p.lavender,
 }
 
-return M
+-- Key order for btop theme file format
+local key_order = {
+  "main_bg",
+  "main_fg",
+  "title",
+  "hi_fg",
+  "selected_bg",
+  "selected_fg",
+  "inactive_fg",
+  "graph_text",
+  "meter_bg",
+  "proc_misc",
+  "cpu_box",
+  "mem_box",
+  "net_box",
+  "proc_box",
+  "div_line",
+  "temp_start",
+  "temp_mid",
+  "temp_end",
+  "cpu_start",
+  "cpu_mid",
+  "cpu_end",
+  "free_start",
+  "free_mid",
+  "free_end",
+  "cached_start",
+  "cached_mid",
+  "cached_end",
+  "available_start",
+  "available_mid",
+  "available_end",
+  "used_start",
+  "used_mid",
+  "used_end",
+  "download_start",
+  "download_mid",
+  "download_end",
+  "upload_start",
+  "upload_mid",
+  "upload_end",
+  "process_start",
+  "process_mid",
+  "process_end",
+}
+
+-- Transform for contrib/btop/lavi.theme
+local function transform(compiled)
+  local lines = {
+    "# Lavi theme for btop",
+    "# https://github.com/b0o/lavi.nvim",
+    "",
+  }
+
+  for _, k in ipairs(key_order) do
+    local v = compiled[k]
+    if v ~= nil then
+      local value = type(v) == "string" and v or tostring(v)
+      table.insert(lines, string.format('theme[%s]="%s"', k, value))
+    end
+  end
+
+  return lines
+end
+
+return {
+  colors = colors,
+  transform = transform,
+}
