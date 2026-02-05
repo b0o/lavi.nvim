@@ -1,6 +1,7 @@
 local p = require("lush_theme.lavi.palette")
+local transforms = require("lush_theme.lavi.transforms")
 
-local M = {
+local colors = {
   themes = {
     lavi = {
       bg = p.bg,
@@ -157,4 +158,12 @@ local M = {
   },
 }
 
-return M
+-- Transform for contrib/zellij/lavi.kdl
+local function transform(compiled)
+  return transforms.to_kdl(compiled)
+end
+
+return {
+  colors = colors,
+  transform = transform,
+}
