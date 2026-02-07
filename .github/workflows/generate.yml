@@ -1,4 +1,4 @@
-name: Check
+name: Generate
 
 on:
   push:
@@ -24,10 +24,13 @@ jobs:
       - name: Regenerate themes
         run: nix develop -c lavi-generate-themes
 
+      - name: Format
+        run: nix develop -c lavi-format
+
       - name: Check for changes
         id: check-changes
         run: |
-          if [[ -n $(git status --porcelain contrib/ nix/themes/) ]]; then
+          if [[ -n $(git status --porcelain contrib/ nix/themes/ colors/ lua/lavi/ lua/lualine/) ]]; then
             echo "changes=true" >> $GITHUB_OUTPUT
           else
             echo "changes=false" >> $GITHUB_OUTPUT
@@ -38,16 +41,16 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add contrib/ nix/themes/
-          git commit -m "chore: regenerate theme files"
+          git add contrib/ nix/themes/ colors/ lua/lavi/ lua/lualine/
+          git commit -m "chore: regenerate and format theme files"
           git push
 
       - name: Fail PR if themes out of date
         if: steps.check-changes.outputs.changes == 'true' && github.event_name == 'pull_request'
         run: |
           echo "Theme files are out of date!"
-          echo "Run 'just build' or 'nix develop -c lavi-generate-themes' and commit the changes."
-          git diff contrib/ nix/themes/
+          echo "Run 'just build && just fmt' or 'nix develop -c bash -c \"lavi-generate-themes && lavi-format\"' and commit the changes."
+          git diff contrib/ nix/themes/ colors/ lua/lavi/ lua/lualine/
           exit 1
 
   build-packages:

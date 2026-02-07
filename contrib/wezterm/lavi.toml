@@ -1,10 +1,10 @@
 [colors]
-foreground    = "#EDE7FE"
-background    = "#25213B"
-cursor_fg     = "#EDE7FE"
-cursor_bg     = "#25213B"
+foreground = "#EDE7FE"
+background = "#25213B"
+cursor_fg = "#EDE7FE"
+cursor_bg = "#25213B"
 cursor_border = "#463E6F"
-selection_fg  = "#EDE7FE"
-selection_bg  = "#584F8C"
+selection_fg = "#EDE7FE"
+selection_bg = "#584F8C"
 ansi = ["#2E2A37", "#F2637E", "#7CF89B", "#FFD080", "#7583FF", "#B98AFF", "#2CEDC0", "#EEE5FF"]
 brights = ["#8876A7", "#F47189", "#8BF9A6", "#FFD68F", "#8591FF", "#BF94FF", "#43EFC7", "#FFFFFF"]
