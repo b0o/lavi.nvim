@@ -37,7 +37,7 @@ local function lua_to_json(value, indent)
 
   if type(value) == "string" then
     -- Escape special characters in strings
-    local escaped = value:gsub('\\', '\\\\'):gsub('"', '\\"'):gsub('\n', '\\n'):gsub('\r', '\\r'):gsub('\t', '\\t')
+    local escaped = value:gsub("\\", "\\\\"):gsub('"', '\\"'):gsub("\n", "\\n"):gsub("\r", "\\r"):gsub("\t", "\\t")
     return string.format('"%s"', escaped)
   elseif type(value) == "number" then
     return tostring(value)
