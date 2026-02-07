@@ -48,6 +48,11 @@ programs.neovim.plugins = [
 1. Copy [`contrib/btop/lavi.theme`](./contrib/btop/lavi.theme) to `~/.config/btop/themes/lavi.theme`
 2. Set `color_theme = "lavi"` in your `~/.config/btop/btop.conf` or select it from the options menu
 
+### [Clipse](https://github.com/savedra1/clipse)
+
+1. Copy [`contrib/clipse/lavi.json`](./contrib/clipse/lavi.json) to `~/.config/clipse/custom_theme.json`
+2. Set `"themeFile": "custom_theme.json"` in your `~/.config/clipse/config.json`
+
 ### Foot
 
 1. Copy the contents of [`contrib/foot/lavi.ini`](./contrib/foot/lavi.ini) into your `~/.config/foot/foot.ini`
@@ -130,6 +135,7 @@ Import and configure:
     foot.enable = true;      # Merges into programs.foot.settings
     btop.enable = true;      # Writes theme file and sets color_theme
     bottom.enable = true;    # Merges styles into programs.bottom.settings
+    clipse.enable = true;    # Merges theme into services.clipse.theme
     opencode.enable = true;  # Configures programs.opencode.themes.lavi
     wezterm.enable = true;   # Writes theme to wezterm/colors/
     zellij.enable = true;    # Configures programs.zellij.themes.lavi
