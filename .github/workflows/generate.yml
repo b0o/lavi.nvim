@@ -21,11 +21,8 @@ jobs:
 
       - uses: DeterminateSystems/magic-nix-cache-action@main
 
-      - name: Regenerate themes
-        run: nix develop -c lavi-generate-themes
-
-      - name: Format
-        run: nix develop -c lavi-format
+      - name: Build themes
+        run: nix develop -c lavi-build
 
       - name: Check for changes
         id: check-changes
@@ -49,7 +46,7 @@ jobs:
         if: steps.check-changes.outputs.changes == 'true' && github.event_name == 'pull_request'
         run: |
           echo "Theme files are out of date!"
-          echo "Run 'just build && just fmt' or 'nix develop -c bash -c \"lavi-generate-themes && lavi-format\"' and commit the changes."
+          echo "Run 'just build' or 'nix develop -c lavi-build' and commit the changes."
           git diff contrib/ nix/themes/ colors/ lua/lavi/ lua/lualine/
           exit 1
 

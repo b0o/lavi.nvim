@@ -164,7 +164,7 @@
             if ! diff -r ${./contrib} ${lavi-themes-generated}/contrib; then
               echo ""
               echo "ERROR: Committed contrib/ files don't match generated output!"
-              echo "Run 'just build' or 'nix develop -c lavi-generate-themes' and commit the changes."
+              echo "Run 'just build' or 'nix develop -c lavi-build' and commit the changes."
               exit 1
             fi
 
@@ -172,7 +172,7 @@
             if ! diff -r ${./nix/themes} ${lavi-themes-generated}/nix/themes; then
               echo ""
               echo "ERROR: Committed nix/themes/ files don't match generated output!"
-              echo "Run 'just build' or 'nix develop -c lavi-generate-themes' and commit the changes."
+              echo "Run 'just build' or 'nix develop -c lavi-build' and commit the changes."
               exit 1
             fi
 
@@ -236,19 +236,13 @@
             dprint
           ];
 
-          generate-themes = pkgs.writeShellScriptBin "lavi-generate-themes" ''
+          lavi-build = pkgs.writeShellScriptBin "lavi-build" ''
             set -e
             cd "$(git rev-parse --show-toplevel)"
             nvim --headless -u build.lua +LaviBuild +q
-            echo "Themes generated successfully"
-          '';
-
-          format = pkgs.writeShellScriptBin "lavi-format" ''
-            set -e
-            cd "$(git rev-parse --show-toplevel)"
             stylua .
             dprint fmt
-            echo "Formatting complete"
+            echo "Build complete"
           '';
         in
         {
@@ -259,8 +253,7 @@
               lavi-themes-generated
               lavi-nvim
               lavi-nvim-dev
-              generate-themes
-              format
+              lavi-build
               ;
           };
 
@@ -271,17 +264,15 @@
 
           devShells.default = pkgs.mkShell {
             buildInputs = buildDeps ++ [
-              generate-themes
-              format
+              lavi-build
             ];
 
             shellHook = ''
               echo "Lavi development shell"
               echo ""
               echo "Commands:"
-              echo "  lavi-generate-themes  - Regenerate all theme files"
-              echo "  lavi-format           - Format code with stylua and dprint"
-              echo "  nvim -u build.lua     - Open Neovim with Lush for interactive development"
+              echo "  lavi-build          - Generate themes and format"
+              echo "  nvim -u build.lua   - Open Neovim with Lush for interactive development"
               echo ""
               echo "Run 'nix flake check' to verify committed files match generated output."
               echo ""

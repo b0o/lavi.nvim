@@ -232,8 +232,7 @@ For contributing or modifying themes:
 
 ```bash
 nix develop github:b0o/lavi.nvim
-lavi-generate-themes  # Regenerate all theme files
-lavi-format           # Format with stylua and dprint
+lavi-build  # Generate themes and format
 ```
 
 #### Verifying Themes
@@ -253,12 +252,10 @@ This colorscheme is built with [Lush.nvim](https://github.com/rktjmp/lush.nvim),
 Themes are generated from the palette and highlight definitions in `lua/lush_theme/lavi/`.
 The files in `contrib/`, `nix/themes/`, `colors/`, and `lua/lavi/` are automatically generated - don't edit them directly.
 
-Re-generate themes with:
+Re-generate themes and format with:
 
-- `just build` (requires [just](https://github.com/casey/just)), or
-- `nix develop -c lavi-generate-themes`
-
-Format with `just fmt` - requires [StyLua](https://github.com/JohnnyMorganz/StyLua) and [dprint](https://dprint.dev/).
+- `just build` (requires [just](https://github.com/casey/just), [StyLua](https://github.com/JohnnyMorganz/StyLua), and [dprint](https://dprint.dev/)), or
+- `nix develop -c lavi-build`
 
 ## License
 

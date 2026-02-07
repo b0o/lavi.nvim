@@ -1,9 +1,7 @@
 default:
-    @just build fmt
-
-fmt:
-    stylua .
-    dprint fmt
+    @just build
 
 build:
     nvim --headless -u build.lua +LaviBuild +q
+    stylua .
+    dprint fmt
