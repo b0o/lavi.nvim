@@ -29,7 +29,12 @@ programs.neovim.plugins = [
 ];
 ```
 
-### Alacritty
+### Other Programs
+
+<details>
+<summary><b>Alacritty</b></summary>
+
+<a href="https://github.com/alacritty/alacritty">Alacritty</a>: Cross-platform, GPU-accelerated terminal emulator
 
 1. Copy [`contrib/alacritty/lavi.toml`](./contrib/alacritty/lavi.toml) to `~/.config/alacritty/lavi.toml`
 2. Import into your Alacritty config:
@@ -39,45 +44,90 @@ programs.neovim.plugins = [
    ]
    ```
 
-### Bottom
+</details>
+
+<details>
+<summary><b>Bottom</b></summary>
+
+<a href="https://github.com/ClementTsang/bottom">Bottom</a>: Graphical process/system monitor for the terminal
 
 1. Copy the contents of [`contrib/bottom/lavi.toml`](./contrib/bottom/lavi.toml) into your `~/.config/bottom/bottom.toml`
 
-### Btop
+</details>
+
+<details>
+<summary><b>Btop</b></summary>
+
+<a href="https://github.com/aristocratos/btop">Btop</a>: Resource monitor with a customizable interface
 
 1. Copy [`contrib/btop/lavi.theme`](./contrib/btop/lavi.theme) to `~/.config/btop/themes/lavi.theme`
 2. Set `color_theme = "lavi"` in your `~/.config/btop/btop.conf` or select it from the options menu
 
-### [Clipse](https://github.com/savedra1/clipse)
+</details>
+
+<details>
+<summary><b>Clipse</b></summary>
+
+<a href="https://github.com/savedra1/clipse">Clipse</a>: Configurable TUI clipboard manager for Unix
 
 1. Copy [`contrib/clipse/lavi.json`](./contrib/clipse/lavi.json) to `~/.config/clipse/custom_theme.json`
 2. Set `"themeFile": "custom_theme.json"` in your `~/.config/clipse/config.json`
 
-### Foot
+</details>
+
+<details>
+<summary><b>Foot</b></summary>
+
+<a href="https://codeberg.org/dnkl/foot">Foot</a>: Fast, lightweight Wayland terminal emulator
 
 1. Copy the contents of [`contrib/foot/lavi.ini`](./contrib/foot/lavi.ini) into your `~/.config/foot/foot.ini`
 
-### Ghostty
+</details>
+
+<details>
+<summary><b>Ghostty</b></summary>
+
+<a href="https://github.com/ghostty-org/ghostty">Ghostty</a>: Fast, native terminal emulator with platform-native UI
 
 1. Copy [`contrib/ghostty/lavi.conf`](./contrib/ghostty/lavi.conf) to `~/.config/ghostty/themes/lavi.conf`
 2. Set `theme = lavi.conf` in your `~/.config/ghostty/config`
 
-### Kitty
+</details>
+
+<details>
+<summary><b>Kitty</b></summary>
+
+<a href="https://github.com/kovidgoyal/kitty">Kitty</a>: GPU-accelerated terminal emulator
 
 1. Copy the contents of [`contrib/kitty/lavi.conf`](./contrib/kitty/lavi.conf) into your `~/.config/kitty/themes/lavi.conf`
 2. Run `kitty +kitten themes --reload-in=all lavi` to set the theme
 
-### Opencode
+</details>
+
+<details>
+<summary><b>Opencode</b></summary>
+
+<a href="https://github.com/opencode-ai/opencode">Opencode</a>: TUI for coding with LLMs from the terminal
 
 1. Copy [`contrib/opencode/lavi.json`](./contrib/opencode/lavi.json) to `~/.config/opencode/themes/lavi.json`
 2. Set `{ "theme": "lavi" }` in your `~/.config/opencode/opencode.jsonc` or select it from the UI theme picker
 
-### Wezterm
+</details>
+
+<details>
+<summary><b>Wezterm</b></summary>
+
+<a href="https://github.com/wez/wezterm">Wezterm</a>: GPU-accelerated terminal emulator and multiplexer
 
 1. Copy [`contrib/wezterm/lavi.toml`](./contrib/wezterm/lavi.toml) to `~/.config/wezterm/colors/lavi.toml`
 2. Set `config.color_scheme = "lavi"` in your Wezterm config
 
-### Windows Terminal
+</details>
+
+<details>
+<summary><b>Windows Terminal</b></summary>
+
+<a href="https://github.com/microsoft/terminal">Windows Terminal</a>: Modern terminal application for Windows
 
 1. Open the Windows Terminal settings (`ctrl+,`)
 2. Select **Open JSON file** at the bottom left corner (`ctrl+shift+,`)
@@ -92,10 +142,17 @@ programs.neovim.plugins = [
 4. Save and exit
 5. In the **Settings** panel under **Profiles**, select the profile you want to use the theme in, then select **Appearance** and choose **lavi** from the **Color scheme** dropdown
 
-### Zellij
+</details>
+
+<details>
+<summary><b>Zellij</b></summary>
+
+<a href="https://github.com/zellij-org/zellij">Zellij</a>: Terminal workspace and multiplexer
 
 1. Copy [`contrib/zellij/lavi.kdl`](./contrib/zellij/lavi.kdl) to `~/.config/zellij/themes/lavi.kdl`
 2. Set `theme "lavi"` in your `~/.config/zellij/config.kdl`
+
+</details>
 
 ### Nix
 
