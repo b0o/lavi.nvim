@@ -150,10 +150,21 @@ vim.api.nvim_create_user_command("LaviBuild", function()
 
   -- Zellij
   local zellij = require("lush_theme.lavi.zellij")
+  builder.run(zellij.colors, zellij.transform, { require("shipwright.transform.overwrite"), "contrib/zellij/lavi.kdl" })
+
+  -- Clipse
+  local clipse = require("lush_theme.lavi.clipse")
   builder.run(
-    zellij.colors,
-    zellij.transform,
-    { require("shipwright.transform.overwrite"), "contrib/zellij/lavi.kdl" }
+    clipse.colors,
+    transforms.compile_palette,
+    clipse.transform,
+    { require("shipwright.transform.overwrite"), "contrib/clipse/lavi.json" }
+  )
+  builder.run(
+    clipse.colors,
+    transforms.compile_palette,
+    clipse.transform_nix,
+    { require("shipwright.transform.overwrite"), "nix/themes/clipse.nix" }
   )
 
   -- Base16 (for Stylix)

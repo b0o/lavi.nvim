@@ -98,14 +98,14 @@ Lavi provides a Nix flake with multiple outputs for flexible integration.
 
 #### Flake Outputs
 
-| Output | Description |
-|--------|-------------|
-| `packages.<system>.lavi-nvim` | Minimal Neovim plugin (runtime only, no lush dependency) |
-| `packages.<system>.lavi-nvim-dev` | Full Neovim plugin with lush sources for customization |
-| `packages.<system>.lavi-themes` | All theme files from `contrib/` |
-| `lib.themes.<app>` | Raw theme content as strings (e.g., `lib.themes.ghostty`) |
-| `lib.base16` | Base16 color scheme for Stylix integration |
-| `homeManagerModules.lavi` | Home-manager module with per-app options |
+| Output                            | Description                                               |
+| --------------------------------- | --------------------------------------------------------- |
+| `packages.<system>.lavi-nvim`     | Minimal Neovim plugin (runtime only, no lush dependency)  |
+| `packages.<system>.lavi-nvim-dev` | Full Neovim plugin with lush sources for customization    |
+| `packages.<system>.lavi-themes`   | All theme files from `contrib/`                           |
+| `lib.themes.<app>`                | Raw theme content as strings (e.g., `lib.themes.ghostty`) |
+| `lib.base16`                      | Base16 color scheme for Stylix integration                |
+| `homeManagerModules.lavi`         | Home-manager module with per-app options                  |
 
 #### Home-Manager Module
 
@@ -191,6 +191,7 @@ Themes are generated from the palette and highlight definitions in `lua/lush_the
 The files in `contrib/`, `nix/themes/`, `colors/`, and `lua/lavi/` are automatically generated - don't edit them directly.
 
 Re-generate themes with:
+
 - `just build` (requires [just](https://github.com/casey/just)), or
 - `nix develop -c lavi-generate-themes`
 

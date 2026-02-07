@@ -26,6 +26,7 @@
           base16 = builtins.readFile ./contrib/base16/lavi.yaml;
           bottom = builtins.readFile ./contrib/bottom/lavi.toml;
           btop = builtins.readFile ./contrib/btop/lavi.theme;
+          clipse = builtins.readFile ./contrib/clipse/lavi.json;
           foot = builtins.readFile ./contrib/foot/lavi.ini;
           ghostty = builtins.readFile ./contrib/ghostty/lavi.conf;
           kitty = builtins.readFile ./contrib/kitty/lavi.conf;

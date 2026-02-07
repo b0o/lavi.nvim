@@ -46,6 +46,7 @@ in
     alacritty.enable = lib.mkEnableOption "Lavi theme for Alacritty";
     bottom.enable = lib.mkEnableOption "Lavi theme for Bottom";
     btop.enable = lib.mkEnableOption "Lavi theme for Btop";
+    clipse.enable = lib.mkEnableOption "Lavi theme for Clipse";
     foot.enable = lib.mkEnableOption "Lavi theme for Foot";
     ghostty.enable = lib.mkEnableOption "Lavi theme for Ghostty";
     kitty.enable = lib.mkEnableOption "Lavi theme for Kitty";
@@ -74,6 +75,11 @@ in
     (lib.mkIf cfg.btop.enable {
       programs.btop.settings.color_theme = "lavi";
       xdg.configFile."btop/themes/lavi.theme".source = ../../contrib/btop/lavi.theme;
+    })
+
+    # Clipse - merge theme settings
+    (lib.mkIf cfg.clipse.enable {
+      services.clipse.theme = import ../themes/clipse.nix;
     })
 
     # Foot - merge settings
