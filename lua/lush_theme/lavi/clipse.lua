@@ -5,46 +5,46 @@ local transforms = require("lush_theme.lavi.transforms")
 local colors = {
   useCustom = true,
 
-  -- Title bar: match Normal highlight group
-  TitleFore = lavi.Normal.fg,
+  -- Title bar
+  TitleFore = p.fg_dim,
   TitleBack = lavi.Normal.bg,
-  TitleInfo = lavi.Normal.fg,
+  TitleInfo = p.fg_nc,
 
-  -- List items: use Statement for titles (like keywords), softer desc
-  NormalTitle = lavi.Statement.fg,
-  DimmedTitle = lavi.Comment.fg,
-  SelectedTitle = p.cyan.desaturate(10).lighten(50), -- match Function highlight
-  NormalDesc = p.velvet, -- soft lavender, not raw green
-  DimmedDesc = lavi.Comment.fg,
-  SelectedDesc = p.cyan.desaturate(10).lighten(50),
+  -- List items: restrained palette - lavender accent, muted shades for depth
+  NormalTitle = p.fg_dim,
+  DimmedTitle = p.bright_black,
+  SelectedTitle = p.blush,
+  NormalDesc = p.fg_nc,
+  DimmedDesc = p.bright_black,
+  SelectedDesc = p.fg_dim,
 
-  -- Status: use accent from the theme
-  StatusMsg = p.bright_violet.darken(5).desaturate(30),
-  PinIndicatorColor = p.cayenne,
+  -- Status: soft violet accent
+  StatusMsg = p.velvet,
+  PinIndicatorColor = p.lavender,
 
   -- Selection borders: match the selected title color
-  SelectedBorder = p.cyan.desaturate(10).lighten(50),
-  SelectedDescBorder = p.cyan.desaturate(10).lighten(50),
+  SelectedBorder = p.blush,
+  SelectedDescBorder = p.bright_black,
 
-  -- Filter: draw from search/match highlight groups
-  FilteredMatch = lavi.Search.fg,
-  FilterPrompt = p.yellow.lighten(20).desaturate(20),
-  FilterInfo = lavi.Normal.fg,
-  FilterText = lavi.Normal.fg,
-  FilterCursor = p.orange.desaturate(10).lighten(15),
+  -- Filter: keep cohesive with lavender/blush family
+  FilteredMatch = p.blush,
+  FilterPrompt = p.fg_dim,
+  FilterInfo = p.fg_nc,
+  FilterText = p.fg_dim,
+  FilterCursor = p.lavender,
 
-  -- Help: use Function color for keys, normal for descriptions
-  HelpKey = lavi.Function.fg,
-  HelpDesc = lavi.Normal.fg,
+  -- Help
+  HelpKey = p.velvet,
+  HelpDesc = p.fg_nc,
 
-  -- Pagination
-  PageActiveDot = p.matcha,
-  PageInactiveDot = lavi.Comment.fg,
-  DividerDot = p.cayenne,
+  -- Pagination: shades of the same palette
+  PageActiveDot = p.velvet,
+  PageInactiveDot = p.bright_black,
+  DividerDot = p.med_black,
 
   -- Preview
-  PreviewedText = lavi.Normal.fg,
-  PreviewBorder = lavi.Statement.fg,
+  PreviewedText = p.fg_nc,
+  PreviewBorder = p.bright_black,
 }
 
 -- Transform for contrib/clipse/lavi.json
