@@ -76,6 +76,36 @@ programs.neovim.plugins = [
 </details>
 
 <details>
+<summary><b>Dank Material Shell</b></summary>
+
+<a href="https://github.com/AvengeMedia/DankMaterialShell">Dank Material Shell</a>: Desktop shell for wayland compositors
+
+1. Copy [`contrib/dank-material-shell/lavi.json`](./contrib/dank-material-shell/lavi.json) to `~/.config/DankMaterialShell/themes/lavi.json`
+2. In Settings → Theme & Colors, select **Custom** and set the theme file path to the copied file
+3. Alternatively, set `"currentThemeName": "custom"` and `"customThemeFile": "/path/to/lavi.json"` in `~/.config/DankMaterialShell/settings.json`
+
+**Nix/Home-Manager:**
+
+Requires the [DMS home-manager module](https://github.com/AvengeMedia/DankMaterialShell) from the DMS flake:
+
+```nix
+# flake.nix inputs:
+inputs.dms.url = "github:AvengeMedia/DankMaterialShell/stable";
+
+# home-manager config:
+imports = [
+  inputs.dms.homeModules.dank-material-shell
+  inputs.lavi.homeManagerModules.lavi
+];
+
+lavi.dank-material-shell.enable = true;
+```
+
+This writes the theme file to `~/.config/DankMaterialShell/themes/lavi.json` and sets `programs.dank-material-shell.settings` to use it as the active custom theme.
+
+</details>
+
+<details>
 <summary><b>Foot</b></summary>
 
 <a href="https://codeberg.org/dnkl/foot">Foot</a>: Fast, lightweight Wayland terminal emulator
@@ -193,6 +223,7 @@ Import and configure:
     btop.enable = true;      # Writes theme file and sets color_theme
     bottom.enable = true;    # Merges styles into programs.bottom.settings
     clipse.enable = true;    # Merges theme into services.clipse.theme
+    dank-material-shell.enable = true; # Configures programs.dank-material-shell custom theme
     opencode.enable = true;  # Configures programs.opencode.themes.lavi
     wezterm.enable = true;   # Writes theme to wezterm/colors/
     zellij.enable = true;    # Configures programs.zellij.themes.lavi

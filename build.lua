@@ -152,6 +152,15 @@ vim.api.nvim_create_user_command("LaviBuild", function()
   local zellij = require("lush_theme.lavi.zellij")
   builder.run(zellij.colors, zellij.transform, { require("shipwright.transform.overwrite"), "contrib/zellij/lavi.kdl" })
 
+  -- Dank Material Shell
+  local dms = require("lush_theme.lavi.dank-material-shell")
+  builder.run(
+    dms.colors,
+    transforms.compile_palette,
+    dms.transform,
+    { require("shipwright.transform.overwrite"), "contrib/dank-material-shell/lavi.json" }
+  )
+
   -- Clipse
   local clipse = require("lush_theme.lavi.clipse")
   builder.run(

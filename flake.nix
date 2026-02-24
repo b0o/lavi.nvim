@@ -27,6 +27,7 @@
           bottom = builtins.readFile ./contrib/bottom/lavi.toml;
           btop = builtins.readFile ./contrib/btop/lavi.theme;
           clipse = builtins.readFile ./contrib/clipse/lavi.json;
+          dank-material-shell = builtins.readFile ./contrib/dank-material-shell/lavi.json;
           foot = builtins.readFile ./contrib/foot/lavi.ini;
           ghostty = builtins.readFile ./contrib/ghostty/lavi.conf;
           kitty = builtins.readFile ./contrib/kitty/lavi.conf;

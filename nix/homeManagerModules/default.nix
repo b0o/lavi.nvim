@@ -2,9 +2,9 @@
   config,
   lib,
   pkgs,
+  options,
   ...
-}:
-let
+}: let
   cfg = config.lavi;
 
   # Build the lavi-nvim plugin using the same logic as flake.nix
@@ -13,25 +13,23 @@ let
     version = "0.1.0";
     src = pkgs.lib.cleanSourceWith {
       src = ../..;
-      filter =
-        path: type:
-        let
-          name = baseNameOf path;
-          excluded = [
-            "lush_theme"
-            "lavi_dev.lua"
-            "build.lua"
-            "build"
-            "contrib"
-            "nix"
-            "docs"
-            "justfile"
-            "dprint.json"
-            ".gitignore"
-            "flake.nix"
-            "flake.lock"
-          ];
-        in
+      filter = path: type: let
+        name = baseNameOf path;
+        excluded = [
+          "lush_theme"
+          "lavi_dev.lua"
+          "build.lua"
+          "build"
+          "contrib"
+          "nix"
+          "docs"
+          "justfile"
+          "dprint.json"
+          ".gitignore"
+          "flake.nix"
+          "flake.lock"
+        ];
+      in
         !(builtins.elem name excluded);
     };
     meta = {
@@ -40,13 +38,13 @@ let
       license = pkgs.lib.licenses.mit;
     };
   };
-in
-{
+in {
   options.lavi = {
     alacritty.enable = lib.mkEnableOption "Lavi theme for Alacritty";
     bottom.enable = lib.mkEnableOption "Lavi theme for Bottom";
     btop.enable = lib.mkEnableOption "Lavi theme for Btop";
     clipse.enable = lib.mkEnableOption "Lavi theme for Clipse";
+    dank-material-shell.enable = lib.mkEnableOption "Lavi theme for Dank Material Shell";
     foot.enable = lib.mkEnableOption "Lavi theme for Foot";
     ghostty.enable = lib.mkEnableOption "Lavi theme for Ghostty";
     kitty.enable = lib.mkEnableOption "Lavi theme for Kitty";
@@ -82,6 +80,19 @@ in
       services.clipse.theme = import ../themes/clipse.nix;
     })
 
+    # Dank Material Shell - writes theme file and configures custom theme in settings
+    # Requires DMS home-manager module: github:AvengeMedia/DankMaterialShell#homeModules.dank-material-shell
+    (lib.mkIf cfg.dank-material-shell.enable ({
+        xdg.configFile."DankMaterialShell/themes/lavi.json".source =
+          ../../contrib/dank-material-shell/lavi.json;
+      }
+      // lib.optionalAttrs (options ? programs.dank-material-shell) {
+        programs.dank-material-shell.settings = {
+          currentThemeName = "custom";
+          customThemeFile = "${config.xdg.configHome}/DankMaterialShell/themes/lavi.json";
+        };
+      }))
+
     # Foot - merge settings
     (lib.mkIf cfg.foot.enable {
       programs.foot.settings = import ../themes/foot.nix;
@@ -99,7 +110,7 @@ in
 
     # Neovim - add plugin to programs.neovim.plugins
     (lib.mkIf cfg.neovim.enable {
-      programs.neovim.plugins = [ cfg.neovim.package ];
+      programs.neovim.plugins = [cfg.neovim.package];
     })
 
     # Bottom - merge settings (styles section)

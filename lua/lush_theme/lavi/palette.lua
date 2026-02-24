@@ -79,7 +79,6 @@ M.violet = hsl("#DC91FF")
 M.skyblue = hsl("#3FC4C4")
 
 M.bright_indigo = M.indigo.lighten(10)
-M.bright_violet = M.violet.lighten(10)
 M.oceanblue = hsl("#80BDFF")
 M.med_violet = hsl("#9385F8")
 M.bright_violet = hsl("#B891FF")
